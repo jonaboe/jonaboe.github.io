@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,user-scalable=no">
+<meta name="description" content="Ist Wetter? Wie ist das Wetter heute?" />
+<meta name="keywords" content="wetter, wettervorhersage, sonne, regen, sonnig, regnerisch, heute" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/iw.js"></script>
+<script>
+  var weather = null;
+  
+  function handleOnLoad() {
+    weather = IW.Query.OpenWeather();
+    weather.getWeatherData();
+  }
+  
+  function switchPages() {
+    var infoText = $('#infotext').html();
+    if (infoText === "[Information]") {
+      if (weather.lang == "de") {
+        $('#infotext').html("[zurück]");
+        $('#disclaimer-de').css('display', 'block');
+      }
+      else {
+        $('#infotext').html("[back]");
+        $('#disclaimer-en').css('display', 'block');
+      }
+      $('#content').css('display', 'none');      
+    }
+    else {
+      $('#infotext').html("[Information]");
+      $('#content').css('display', 'block');
+      $('#disclaimer-de').css('display', 'none');
+      $('#disclaimer-en').css('display', 'none');
+    }
+  }  
+</script>
+<title>Ist Wetter?</title>
+</head>
+<body onLoad="handleOnLoad();">
+  <div id="info">
+    <a href="#" onclick="switchPages();" id="infotext">[Information]</a>
+  </div>
+  <div id="spinner"><img src="img/spinner.gif" width="50" height="50" alt="loading..." /></div>
+  <div id="content" class="main"></div>
+  <div id="disclaimer-de" class="main backside">
+  &nbsp;<br/>Diese App ist für meinen Vater und meine Großeltern.<br/>Aus dem schönen Bundesland Hessen.<br/>Fragt man dort
+  an einem sonnigen Tag nach dem Wetter, 
+  lautet die Antwort einfach "Heute ist Wetter".<br/><br/>
+  Eleganz durch Ausparung.
+  </div>
+  <div id="disclaimer-en" class="main backside">
+  &nbsp;<br/>This app is for my father and my grand parents<br/>From the German state Hessen.<br/>In Hessen, when you ask 
+  what the weather is like, on a sunny day you'll get the answer: "it is weather".<br/><br/>
+  Elegance by omission.
+  </div>
+</body>
+</html>
