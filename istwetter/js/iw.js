@@ -37,7 +37,7 @@ IW.Query = (function(module)
     that.textTomorrow = "";
 
     that.weatherApiUrl = 'https://api.openweathermap.org/data/2.5/';
-    that.API_TOKEN = '43ebcdf780a5cae314ccde1054dac873';
+    that.API_TOKEN = 'xxx';
 
     that.todayText = {
       "de" : "",
