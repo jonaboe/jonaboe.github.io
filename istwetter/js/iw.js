@@ -37,7 +37,6 @@ IW.Query = (function(module)
     that.textTomorrow = "";
 
     that.weatherApiUrl = 'https://api.openweathermap.org/data/2.5/';
-    that.API_TOKEN = 'xxx';
 
     that.todayText = {
       "de" : "",
@@ -131,18 +130,19 @@ IW.Query = (function(module)
       if (secret === "43522f2893f99a7c9a5e1ccee8a573f8a45e6d06") {
         var lat = that.urlParam("lat") || 47.881417;
         var lon = that.urlParam("lon") || 7.727939;
-        // this.getWeatherDataWithLatAndLon(lat, lon, that.gotWeatherData);
-        this.getWeatherDataWithLatAndLon(lat, lon, that.gotWeatherDataOpenWeather);
+        var token = that.urlParam("token") || "";
+        // this.getWeatherDataWithLatAndLon(lat, lon, token, that.gotWeatherData);
+        this.getWeatherDataWithLatAndLon(lat, lon, token, that.gotWeatherDataOpenWeather);
       }
       else {
         this.requestRejected();
       }
     }
     
-    that.getWeatherDataWithLatAndLon = function(lat, lon, callback) {
+    that.getWeatherDataWithLatAndLon = function(lat, lon, token, callback) {
       // lat = Math.round(lat * 100) / 100;
       // lon = Math.round(lon * 100) / 100;
-      const url = this.weatherApiUrl + 'forecast?lat=' + lat + '&lon=' + lon + '&APPID=' + this.API_TOKEN;
+      const url = this.weatherApiUrl + 'forecast?lat=' + lat + '&lon=' + lon + '&APPID=' + token;
       $.get(url, function(data) {
         if (callback) {
           callback(data);
