@@ -22,14 +22,13 @@ body {
   clear: both;
   margin: auto;
   width: 50px;
-  margin-top: 50%;  
+  margin-top: 20%;  
 }
 
 .backside {
   display: none;
   line-height: 150%;
   color: #ddd;
-  margin-top: 50%;
   margin-left: 20px;
   margin-right: 20px;
 }
