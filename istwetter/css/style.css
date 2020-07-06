@@ -10,10 +10,7 @@ body {
 
 .main {
   text-align: center;
-  height: 50px;
-  position: relative;
-  top: 30%;
-  transform: translateY(-50%);  
+  margin-top: 50%;
 }
 
 #spinner {
@@ -27,8 +24,7 @@ body {
   display: none;
   line-height: 150%;
   color: #ddd;
-  top: 30%;
-  transform: translateY(-30%);
+  margin-top: 50%;
   margin-left: 20px;
   margin-right: 20px;
 }
