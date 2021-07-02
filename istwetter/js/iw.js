@@ -248,7 +248,7 @@ IW.Query = (function(module)
       
       if (weatherToday[0]) {
         var weatherId = weatherToday[0].id;
-        var isWeather = weatherId === 800 || weatherId === 801 || weatherId === 802;
+        var isWeather = weatherId === 800 || weatherId === 801 || weatherId === 802 || weatherId === 803 || weatherId === 500;
         that.isWeatherToday = isWeather;
         var temperature = mainToday ? (mainToday.temp - 273.15) : 0;
         temperature = Math.round(temperature);
@@ -266,7 +266,7 @@ IW.Query = (function(module)
       
       if (weatherTomorrow[0]) {
         var weatherId = weatherTomorrow[0].id;
-        var isWeather = weatherId === 800 || weatherId === 801 || weatherId === 802;
+        var isWeather = weatherId === 800 || weatherId === 801 || weatherId === 802 || weatherId === 803 || weatherId === 500;
         that.isWeatherTomorrow = isWeather;
         var temperature = mainTomorrow ? (mainTomorrow.temp - 273.15) : 0;
         temperature = Math.round(temperature);
